@@ -69,3 +69,21 @@ driving, VR interaction and scoring systems, but is not a finished game.
 - Unity Input System
 - WheelColliders
 - ScriptableObjects
+
+## Selected Code Samples
+
+The repository contains selected components from the physical VR cockpit
+system. They are presented for code review and do not constitute the
+complete Unity project.
+
+- [Steering wheel](CodeSamples/PhysicalVRCockpit/SteeringWheel.cs)  
+  Converts the position of the player's hand into constrained and
+  smoothed steering-wheel rotation.
+
+- [Manual gear shifter](CodeSamples/PhysicalVRCockpit/GearShifter.cs)  
+  Implements an H-pattern gearbox with gate detection, snapping,
+  five forward gears, neutral and reverse.
+
+- [Handbrake](CodeSamples/PhysicalVRCockpit/Handbrake.cs)  
+  Converts the physical position of the VR handbrake into an analog
+  braking value.
