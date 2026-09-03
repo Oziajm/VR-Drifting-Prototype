@@ -11,18 +11,48 @@ drift detection and score-based gameplay.
 
 ## Key Features
 
-- VR cockpit interaction
-- Vehicle driving and drifting
-- Drift detection and score calculation
-- Visual scoring feedback
-- Night-time driving environment
+- Fully interactive VR cockpit with a physical steering wheel,
+  handbrake and manual H-pattern gear shifter
+- Five forward gears, neutral and reverse
+- Rear-wheel-drive vehicle handling based on Unity WheelColliders
+- Dynamic rear-wheel slip, grip recovery and counter-steering assistance
+- Drift detection based on lateral velocity, vehicle speed and wheel slip
+- Burnout detection with visual and audio feedback
+- Drift scoring with multipliers, steering bonuses and a combo grace period
+- RPM-based engine power and audio
+- Race mode with countdown, ordered checkpoints, timer and progress tracking
+- Configurable vehicle and scoring parameters using ScriptableObjects
 
-## Technical Overview
+## Technical Highlights
 
-The prototype was created to experiment with VR vehicle interaction
-and arcade-style drifting mechanics.
+### Physical VR Controls
 
-The gameplay systems were developed using Unity and C#.
+The cockpit controls are operated directly using VR controllers.
+The steering wheel calculates its rotation from the position of the player's
+hand, while the gear shifter recognizes individual gate positions for
+five forward gears, neutral and reverse. The handbrake provides an
+analog braking value based on its physical position.
+
+### Vehicle and Drift System
+
+The vehicle uses Unity WheelColliders with a custom gameplay layer for
+rear-wheel slip, gear-dependent torque, grip recovery, drift assistance
+and counter-steering. Drift state is determined using lateral velocity,
+vehicle speed and rear-axle slip.
+
+### Drift Scoring
+
+Drift points accumulate over time and are affected by steering input
+and configurable multiplier thresholds. A grace-period system allows
+players to connect drifts, while significant collisions cancel the
+current combo.
+
+### Architecture
+
+Vehicle input, driving physics, wheel handling, audiovisual effects,
+cockpit presentation and scoring are separated into dedicated components.
+Configuration data is stored in ScriptableObjects, while gameplay systems
+communicate through events.
 
 ## Project Status
 
@@ -31,13 +61,11 @@ driving, VR interaction and scoring systems, but is not a finished game.
 
 ## Technologies
 
-- Unity
+- Unity 2023
 - C#
-- VR/XR
-- Vehicle physics
-- Gameplay programming
-
-## Source Code
-
-Selected source-code samples may be added after they have been reviewed
-and prepared for public presentation.
+- OpenXR
+- XR Interaction Toolkit
+- Universal Render Pipeline
+- Unity Input System
+- WheelColliders
+- ScriptableObjects
